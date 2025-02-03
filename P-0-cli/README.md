@@ -1,6 +1,4 @@
-# solana-bootcamp
-
-## CLI:
+# Solana CLI
 
 ## 1. get cluster config
 
