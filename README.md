@@ -27,3 +27,17 @@ solana config set -ud
 solana airdrop 2
 solana balance
 ```
+
+
+## 4. create, build, test anchor program
+
+```sh
+anchor init --test-template rust {program-name}
+anchor build
+anchor test
+```
+
+## 5. add - update dependencies
+```sh
+yarn
+```
