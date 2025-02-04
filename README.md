@@ -32,8 +32,10 @@ solana balance
 ## 4. create, build, test anchor program
 
 ```sh
-anchor init --test-template rust {program-name}
-anchor build
+anchor init --test-template rust {program-name} # or with ts:
+anchor init {program-name} 
+anchor build # if issues with lockfile Change version 4 to 3 in your cargo.lock file and/or run: 
+cargo build-sbf -- -Znext-lockfile-bump
 anchor test
 ```
 
