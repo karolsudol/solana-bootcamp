@@ -29,12 +29,18 @@ solana balance
 ```
 
 
-## 4. create, build, test anchor program
+## 4. create, build, test and deploy anchor program
 
 ```sh
-anchor init --test-template rust {program-name}
-anchor build
-anchor test
+anchor init --test-template rust {program-name} # or with ts:
+anchor init {program-name} 
+anchor build # if issues with lockfile Change version 4 to 3 in your cargo.lock file and/or run: 
+cargo build-sbf -- -Znext-lockfile-bump
+anchor test # alternativelly as:
+solana-test-validator # tb run in separate session and test as:
+anchor test --skip-local-validator
+anchor deploy
+solana program close {program_id} --bypass-warning
 ```
 
 ## 5. add - update dependencies
