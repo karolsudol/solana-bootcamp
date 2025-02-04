@@ -11,7 +11,8 @@ program_0_anchor_basics = "2vBz5hPhDTrH3YqQ69RvU74vMyeynvJTvocZVCpp6LxY"
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
+# cluster = "Localnet"
+cluster = "Devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
