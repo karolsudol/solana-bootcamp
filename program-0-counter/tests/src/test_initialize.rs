@@ -3,6 +3,7 @@ use std::str::FromStr;
 use anchor_client::{
     solana_sdk::{
         commitment_config::CommitmentConfig, pubkey::Pubkey, signature::read_keypair_file,
+        system_program,
     },
     Client, Cluster,
 };
@@ -17,12 +18,20 @@ fn test_initialize() {
     let program_id = Pubkey::from_str(program_id).unwrap();
     let program = client.program(program_id).unwrap();
 
+    // Generate a new keypair for the counter account
+    let counter = anchor_client::solana_sdk::signature::Keypair::new();
+
     let tx = program
         .request()
-        .accounts(program_0_counter::accounts::Initialize {})
-        .args(program_0_counter::instruction::Initialize {})
+        .accounts(program_0_anchor_basics::accounts::Initialize {
+            payer: payer.pubkey(),
+            counter: counter.pubkey(),
+            system_program: system_program::ID,
+        })
+        .args(program_0_anchor_basics::instruction::Initialize {})
+        .signer(&counter)
         .send()
-        .expect("");
+        .expect("Failed to initialize counter");
 
     println!("Your transaction signature {}", tx);
 }
