@@ -54,8 +54,6 @@ fn test_set_favorites() {
 
     println!("Transaction signature: {}", tx);
 
-    // Optional: Add verification
-    // You could fetch the account data and verify the values were set correctly
     let favorites_account = program
         .account::<program_1_favorites::Favorites>(favorites_pda)
         .expect("Failed to fetch favorites account");
