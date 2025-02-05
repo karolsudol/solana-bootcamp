@@ -2,8 +2,7 @@ use std::str::FromStr;
 
 use anchor_client::{
     solana_sdk::{
-        commitment_config::CommitmentConfig, pubkey::Pubkey, signature::read_keypair_file,
-        system_program,
+        commitment_config::CommitmentConfig, pubkey::Pubkey, signature::read_keypair_file, signer::Signer, system_program
     },
     Client, Cluster,
 };
@@ -23,12 +22,12 @@ fn test_initialize() {
 
     let tx = program
         .request()
-        .accounts(program_0_anchor_basics::accounts::Initialize {
+        .accounts(program_0_counter::accounts::Initialize {
             payer: payer.pubkey(),
             counter: counter.pubkey(),
             system_program: system_program::ID,
         })
-        .args(program_0_anchor_basics::instruction::Initialize {})
+        .args(program_0_counter::instruction::Initialize {})
         .signer(&counter)
         .send()
         .expect("Failed to initialize counter");
