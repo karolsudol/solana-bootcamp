@@ -6,4 +6,4 @@ edition = "2021"
 
 [dependencies]
 anchor-client = "0.30.1"
-program-0-anchor-basics = { version = "0.1.0", path = "../programs/program-0-anchor-basics" }
+program-0-counter = { version = "0.1.0", path = "../programs/program-0-counter" }

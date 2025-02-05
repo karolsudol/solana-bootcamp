@@ -9,7 +9,7 @@ use anchor_client::{
 
 #[test]
 fn test_initialize() {
-    let program_id = "2vBz5hPhDTrH3YqQ69RvU74vMyeynvJTvocZVCpp6LxY";
+    let program_id = "FEwiJUyqCWJJyp2ucM9XzcHq5BD6iYjvMUN6TpiwVH1J";
     let anchor_wallet = std::env::var("ANCHOR_WALLET").unwrap();
     let payer = read_keypair_file(&anchor_wallet).unwrap();
 
@@ -19,8 +19,8 @@ fn test_initialize() {
 
     let tx = program
         .request()
-        .accounts(program_0_anchor_basics::accounts::Initialize {})
-        .args(program_0_anchor_basics::instruction::Initialize {})
+        .accounts(program_0_counter::accounts::Initialize {})
+        .args(program_0_counter::instruction::Initialize {})
         .send()
         .expect("");
 
